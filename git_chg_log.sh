@@ -17,7 +17,7 @@ function latest_tag_id() {
 }
 
 if [ "${tag_arr_len}" == "0" ] || [ "${head_tag_id}" == "$(latest_tag_id)" ]; then
-  git log -n${lastCountIfNoTag} --pretty=format:"${logFormat}" --date=format:"${dateFormat}"  |cat
+  git log -n${lastCountIfNoTag} --pretty=format:"${logFormat}" --date=format:"${dateFormat}"  | cat
 else
-  git log --pretty=format:"${logFormat}" --date=format:"${dateFormat}" ${tag_arr[0]}.. HEAD | cat
+  git log --pretty=format:"${logFormat}" --date=format:"${dateFormat}" ${tag_arr[0]}..HEAD | cat
 fi
