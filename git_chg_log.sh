@@ -18,7 +18,7 @@ function tag_sha1_id() {
   git show -s "${1}" --format="%h"
 }
 
-if [ "${tag_arr_len}" == "0" ] || [ "$(tag_sha1_id "HEAD")" == "$(latest_tag_id "${tag_arr[0]}")" ]; then
+if [ "${tag_arr_len}" == "0" ] || [ "$(tag_sha1_id "HEAD")" == "$(tag_sha1_id "${tag_arr[0]}")" ]; then
   git log -n${lastCountIfNoTag} --pretty=format:"${logFormat}" --date=format:"${dateFormat}" | cat
 else
   git log --pretty=format:"${logFormat}" --date=format:"${dateFormat}" "${tag_arr[0]}"..HEAD | cat
